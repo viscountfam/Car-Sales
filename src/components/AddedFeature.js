@@ -1,5 +1,7 @@
 import React from 'react';
+import { connect } from 'react-redux'
 
+// Step 2 - connect the component using the connect function
 const AddedFeature = props => {
   return (
     <li>
@@ -9,5 +11,11 @@ const AddedFeature = props => {
     </li>
   );
 };
+
+const mapStateToProps = state => {
+  return {
+    
+  }
+}
 
 export default AddedFeature;
