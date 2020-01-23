@@ -1,4 +1,4 @@
-import AdditionalFeature from "../components/AdditionalFeature";
+
 
 /// Step 3 build creator function to create and dispatch actions
 // for this project you'll need a add and remove item
@@ -12,12 +12,12 @@ import AdditionalFeature from "../components/AdditionalFeature";
 
 
 //action creator
-export const addItem = () => {
+export const addItem = (item) => {
     // action object
-    return { type: 'ADD_ITEM', payload: AdditionalFeature.id };
+    return { type: 'ADD_ITEM', payload: item };
 }
 
 
-export const removeItem = () => {
-    return { type: 'REMOVE_ITEM', payload: AdditionalFeature.id };
+export const removeItem = (item) => {
+    return { type: 'REMOVE_ITEM', payload: item };
 }

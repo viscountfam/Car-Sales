@@ -1,12 +1,12 @@
 import React from 'react';
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
+import { removeItem } from '../actions/carActions'
 
-// Step 2 - connect the component using the connect function
 const AddedFeature = props => {
   return (
     <li>
       {/* Add an onClick to run a function to remove a feature */}
-      <button className="button">X</button>
+      <button onClick={()=> props.removeItem(props.feature.id)} className="button">X</button>
       {props.feature.name}
     </li>
   );
@@ -14,8 +14,10 @@ const AddedFeature = props => {
 
 const mapStateToProps = state => {
   return {
-    
+    car: state.car
   }
 }
-
-export default AddedFeature;
+export default connect(
+  mapStateToProps,
+  {removeItem}
+)(AddedFeature);

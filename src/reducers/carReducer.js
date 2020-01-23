@@ -1,3 +1,5 @@
+import { connect } from "react-redux";
+
 const initialState = 
     {
         additionalPrice: 0,
@@ -19,6 +21,20 @@ const initialState =
 
     export const carReducer = (state = initialState, action ) => {
         switch (action.type) {
+            case "REMOVE_ITEM":
+                console.log("We're getting to remove features")
+                return { features: state.car.features.filter(feature =>
+                    feature.id !== action.payload)
+                }
+            case "ADD_ITEM":
+                console.log("state.car.features before adding", state.car.features)
+                return {
+                    ...state,
+                    car: {
+                        ...state.car,
+                        features: [...state.car.features, action.payload]
+                    }   
+                };
             default: 
                 return state;
         }
