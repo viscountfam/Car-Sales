@@ -23,9 +23,14 @@ const initialState =
         switch (action.type) {
             case "REMOVE_ITEM":
                 console.log("We're getting to remove features")
-                return { features: state.car.features.filter(feature =>
-                    feature.id !== action.payload)
+                return { 
+                    ...state,
+                        car: {
+                            ...state.car,
+                            features: state.car.features.filter(feature =>
+                            feature.id !== action.payload)
                 }
+            };
             case "ADD_ITEM":
                 console.log("state.car.features before adding", state.car.features)
                 return {
